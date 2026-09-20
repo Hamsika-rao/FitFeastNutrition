@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reports - FitFeast</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="page-header">
+
+        <h1 style="font-family: Georgia, 'Times New Roman', serif; font-weight: 600; letter-spacing: -0.03em;">
+    Nutrition Reports
+</h1>
+
+        <p>
+            Track your calorie intake and nutrition trends
+            over the last 7 days.
+        </p>
+
+        <a href="/dashboard.html">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+
+
+    <h2>7-Day Calorie Report</h2>
+
+    <div class="chart-card">
+        <canvas id="calorieChart"></canvas>
+    </div>
+
+
+    <h2>7-Day Nutrition Summary</h2>
+
+    <div class="nutrition-summary">
+
+        <div class="nutrition-card">
+            <span>Protein</span>
+            <strong id="totalProtein">0</strong>
+            <small>grams</small>
+        </div>
+
+        <div class="nutrition-card">
+            <span>Carbohydrates</span>
+            <strong id="totalCarbs">0</strong>
+            <small>grams</small>
+        </div>
+
+        <div class="nutrition-card">
+            <span>Fat</span>
+            <strong id="totalFat">0</strong>
+            <small>grams</small>
+        </div>
+
+    </div>
+
+
+    <div class="chart-card">
+        <canvas id="nutritionChart"></canvas>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/reports.js"></script>
+
+</body>
+</html>

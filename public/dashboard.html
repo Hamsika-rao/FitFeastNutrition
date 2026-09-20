@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FitFeast Nutrition</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         DASHBOARD HEADER
+    ====================================================== -->
+
+    <h1
+        style="
+            font-family: Georgia, 'Times New Roman', serif;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+        "
+    >
+        FitFeast Nutrition
+    </h1>
+
+
+    <!-- =====================================================
+         FITFEAST NAVIGATION
+    ====================================================== -->
+
+    <nav class="dashboard-links fitfeast-nav">
+
+        <a
+            href="/dashboard.html"
+            class="nav-brand"
+        >
+
+            <span class="nav-brand-mark">
+                F
+            </span>
+
+            <span class="nav-brand-text">
+                FITFEAST
+            </span>
+
+        </a>
+
+
+        <span class="nav-divider"></span>
+
+
+        <a
+            href="/dashboard.html"
+            class="nav-item active"
+        >
+
+            <span class="nav-icon">
+                ⌂
+            </span>
+
+            <span>
+                Home
+            </span>
+
+        </a>
+
+
+        <a
+            href="/mealplan.html"
+            class="nav-item"
+        >
+
+            <span class="nav-icon">
+                ◌
+            </span>
+
+            <span>
+                Meal Plan
+            </span>
+
+        </a>
+
+
+        <a
+            href="/history.html"
+            class="nav-item"
+        >
+
+            <span class="nav-icon">
+                ◷
+            </span>
+
+            <span>
+                History
+            </span>
+
+        </a>
+
+
+        <a
+            href="/progress.html"
+            class="nav-item"
+        >
+
+            <span class="nav-icon">
+                ↗
+            </span>
+
+            <span>
+                Progress
+            </span>
+
+        </a>
+
+
+        <a
+            href="/reports.html"
+            class="nav-item"
+        >
+
+            <span class="nav-icon">
+                ◫
+            </span>
+
+            <span>
+                Reports
+            </span>
+
+        </a>
+
+
+        <a
+            href="/edit-profile.html"
+            class="nav-item"
+        >
+
+            <span class="nav-icon">
+                ⚙
+            </span>
+
+            <span>
+                Profile
+            </span>
+
+        </a>
+
+    </nav>
+
+
+    <!-- =====================================================
+         DASHBOARD INTRODUCTION
+    ====================================================== -->
+
+    <div class="dashboard-intro">
+
+        <h2 id="welcomeMessage"></h2>
+
+        <p>
+            Track your meals, monitor your progress,
+            and stay on top of your nutrition goals.
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         PROFILE
+    ====================================================== -->
+
+    <div class="section-header">
+
+        <h3>
+            Your Profile
+        </h3>
+
+        <p>
+            Your current personal and fitness information.
+        </p>
+
+    </div>
+
+
+    <div class="dashboard-summary">
+
+
+        <div class="summary-card">
+
+            <h3>
+                Name
+            </h3>
+
+            <p id="name"></p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>
+                Email
+            </h3>
+
+            <p id="email"></p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>
+                Age
+            </h3>
+
+            <p id="age"></p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>
+                Height
+            </h3>
+
+            <p>
+                <span id="height"></span> cm
+            </p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>
+                Weight
+            </h3>
+
+            <p>
+                <span id="weight"></span> kg
+            </p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>
+                BMI
+            </h3>
+
+            <p id="bmi"></p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>
+                BMI Status
+            </h3>
+
+            <p id="bmiStatus"></p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>
+                Fitness Goal
+            </h3>
+
+            <p id="goal"></p>
+
+        </div>
+
+
+        <div class="summary-card">
+
+            <h3>
+                Daily Calories
+            </h3>
+
+            <p id="calories"></p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         AVAILABLE MEALS
+    ====================================================== -->
+
+    <div class="section-header">
+
+        <h3>
+            Explore Meals
+        </h3>
+
+        <p>
+            Nutrition details of available meals.
+        </p>
+
+    </div>
+
+
+    <div
+        id="mealsContainer"
+        class="available-meals"
+    ></div>
+
+
+    <!-- =====================================================
+         LOG A MEAL
+    ====================================================== -->
+
+    <div class="section-header">
+
+        <h3>
+            Log a Meal
+        </h3>
+
+        <p>
+            Record what you have eaten today.
+        </p>
+
+    </div>
+
+
+    <div class="form-card">
+
+        <form id="mealLogForm">
+
+
+            <label for="mealSelect">
+                Meal
+            </label>
+
+            <select
+                id="mealSelect"
+                required
+            >
+
+                <option value="">
+                    Select a meal
+                </option>
+
+            </select>
+
+
+            <label for="mealType">
+                Meal Type
+            </label>
+
+            <select
+                id="mealType"
+                required
+                disabled
+            >
+
+                <option value="">
+                    Select type
+                </option>
+
+                <option value="Breakfast">
+                    Breakfast
+                </option>
+
+                <option value="Lunch">
+                    Lunch
+                </option>
+
+                <option value="Snack">
+                    Snack
+                </option>
+
+                <option value="Dinner">
+                    Dinner
+                </option>
+
+            </select>
+
+
+            <label for="quantity">
+                Quantity
+            </label>
+
+            <input
+                type="number"
+                id="quantity"
+                value="1"
+                min="0.1"
+                step="0.1"
+                required
+            >
+
+
+            <p
+                id="caloriePreview"
+                class="calorie-preview"
+            >
+                Total Calories: 0
+            </p>
+
+
+            <button type="submit">
+                Log Meal
+            </button>
+
+        </form>
+
+
+        <p
+            id="mealLogMessage"
+            class="progress-message"
+        ></p>
+
+    </div>
+
+
+    <!-- =====================================================
+         TODAY'S CALORIES
+    ====================================================== -->
+
+    <div class="section-header">
+
+        <h3>
+            Today's Calories
+        </h3>
+
+        <p>
+            Monitor your calorie intake against your daily target.
+        </p>
+
+    </div>
+
+
+    <div class="calorie-summary">
+
+
+        <div class="calorie-card">
+
+            <span class="calorie-label">
+                Consumed
+            </span>
+
+            <strong id="caloriesConsumed">
+                0
+            </strong>
+
+            <span class="calorie-unit">
+                calories
+            </span>
+
+        </div>
+
+
+        <div class="calorie-card">
+
+            <span class="calorie-label">
+                Daily Target
+            </span>
+
+            <strong id="dailyTarget">
+                0
+            </strong>
+
+            <span class="calorie-unit">
+                calories
+            </span>
+
+        </div>
+
+
+        <div class="calorie-card">
+
+            <span class="calorie-label">
+                Remaining
+            </span>
+
+            <strong id="caloriesRemaining">
+                0
+            </strong>
+
+            <span class="calorie-unit">
+                calories
+            </span>
+
+        </div>
+
+
+        <div class="calorie-card">
+
+            <span class="calorie-label">
+                Progress
+            </span>
+
+            <strong id="caloriePercentage">
+                0%
+            </strong>
+
+
+            <div class="calorie-progress-bar">
+
+                <div id="calorieProgressFill"></div>
+
+            </div>
+
+
+            <span class="calorie-unit">
+                of daily target
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TODAY'S MEALS
+    ====================================================== -->
+
+    <div class="section-header">
+
+        <h3>
+            Today's Meals
+        </h3>
+
+        <p>
+            Meals you have logged today.
+        </p>
+
+    </div>
+
+
+    <div id="todayMeals"></div>
+
+
+    <p
+        id="deleteMealMessage"
+        class="progress-message"
+    ></p>
+
+
+    <!-- =====================================================
+         LOGOUT
+    ====================================================== -->
+
+    <button id="logoutButton">
+        Logout
+    </button>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="/js/dashboard.js"></script>
+
+</body>
+
+</html>

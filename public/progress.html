@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progress - FitFeast</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="page-header">
+        <h1 style="font-family: Georgia, 'Times New Roman', serif; font-weight: 600; letter-spacing: -0.03em;">
+    Progress
+</h1>
+        <p>
+            Track your weight and BMI changes over time.
+        </p>
+        <a href="/dashboard.html">
+            ← Back to Dashboard
+        </a>
+    </div>
+
+    <div class="section-header">
+
+        <h2>Record Your Weight</h2>
+
+        <p>
+            Add your current weight to keep your progress updated.
+        </p>
+
+    </div>
+
+    <div class="progress-form">
+
+        <form id="progressForm">
+
+            <label for="weight">
+                Weight (kg):
+            </label>
+
+            <input
+                type="number"
+                id="weight"
+                step="0.1"
+                min="1"
+                required
+            >
+
+            <button type="submit">
+                Record Weight
+            </button>
+
+        </form>
+
+        <p id="message" class="progress-message"></p>
+
+    </div>
+
+
+    <h2>Progress History</h2>
+
+    <div id="progressContainer">
+        <p>Loading progress...</p>
+    </div>
+
+    <h2>Weight Progress</h2>
+
+    <div class="chart-card">
+        <canvas id="progressChart"></canvas>
+    </div>
+
+
+    <h2>BMI Progress</h2>
+
+    <div class="chart-card">
+        <canvas id="bmiChart"></canvas>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/progress.js"></script>
+</body>
+</html>
