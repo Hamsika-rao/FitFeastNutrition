@@ -20,10 +20,7 @@ if (!userData || !token) {
     loadNutritionReport(user.id);
 }
 
-
-// --------------------------------------------------
 // CALORIE REPORT
-// --------------------------------------------------
 
 async function loadCalorieReport(userId) {
 
@@ -191,9 +188,7 @@ async function loadCalorieReport(userId) {
 }
 
 
-// --------------------------------------------------
 // NUTRITION REPORT
-// --------------------------------------------------
 
 async function loadNutritionReport(userId) {
 
@@ -266,9 +261,7 @@ async function loadNutritionReport(userId) {
             );
 
 
-        // --------------------------------------------------
         // CALCULATE 7-DAY TOTALS
-        // --------------------------------------------------
 
         const totalProtein =
             protein.reduce(
@@ -294,9 +287,7 @@ async function loadNutritionReport(userId) {
             );
 
 
-        // --------------------------------------------------
         // DISPLAY TOTALS
-        // --------------------------------------------------
 
         document.getElementById(
             "totalProtein"
@@ -316,9 +307,7 @@ async function loadNutritionReport(userId) {
             totalFat.toFixed(2);
 
 
-        // --------------------------------------------------
         // CREATE NUTRITION CHART
-        // --------------------------------------------------
 
         const ctx =
             document.getElementById(

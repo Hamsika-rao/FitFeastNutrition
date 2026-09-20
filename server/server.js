@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
@@ -14,11 +12,8 @@ const app = express();
 const PORT = 3000;
 
 
-/* =========================================================
-   SECURITY MIDDLEWARE
-========================================================= */
+// Security middleware
 
-// Security HTTP headers
 app.use(
     helmet({
         contentSecurityPolicy: {
@@ -48,7 +43,6 @@ app.use(
     })
 );
 
-// Allow only our frontend origin
 app.use(
     cors({
         origin:
@@ -57,14 +51,12 @@ app.use(
     })
 );
 
-// Limit request body size
 app.use(
     express.json({
         limit: "10kb"
     })
 );
 
-// Serve frontend
 app.use(
     express.static(
         path.join(__dirname, "../public")
@@ -72,9 +64,7 @@ app.use(
 );
 
 
-/* =========================================================
-   RATE LIMITING
-========================================================= */
+// Rate limiting
 
 const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -89,9 +79,7 @@ const authLimiter = rateLimit({
 });
 
 
-/* =========================================================
-   AUTHENTICATION
-========================================================= */
+// Authentication
 
 function authenticateToken(req, res, next) {
 
@@ -151,9 +139,7 @@ function authenticateToken(req, res, next) {
 }
 
 
-/* =========================================================
-   VALIDATION HELPERS
-========================================================= */
+// Validation helpers
 
 function isValidEmail(email) {
 
@@ -263,9 +249,7 @@ function isValidQuantity(quantity) {
 }
 
 
-/* =========================================================
-   REGISTER
-========================================================= */
+// Register
 
 app.post(
     "/api/register",
@@ -468,9 +452,7 @@ app.post(
 );
 
 
-/* =========================================================
-   LOGIN
-========================================================= */
+// Login
 
 app.post(
     "/api/login",
@@ -583,9 +565,7 @@ app.post(
 );
 
 
-/* =========================================================
-   GET PROFILE
-========================================================= */
+// Get profile
 
 app.get(
     "/api/profile/:userId",
@@ -684,9 +664,7 @@ app.get(
 );
 
 
-/* =========================================================
-   UPDATE PROFILE
-========================================================= */
+// Update profile
 
 app.put(
     "/api/profile/:userId",
@@ -867,9 +845,7 @@ app.put(
 );
 
 
-/* =========================================================
-   MEAL PLAN
-========================================================= */
+// Meal plan
 
 app.get(
     "/api/meal-plan/:userId",
@@ -1132,9 +1108,7 @@ app.get(
 );
 
 
-/* =========================================================
-   PUBLIC MEAL CATALOG
-========================================================= */
+// Public meal catalog
 
 app.get(
     "/api/meals",
@@ -1179,9 +1153,7 @@ app.get(
 );
 
 
-/* =========================================================
-   CREATE MEAL LOG
-========================================================= */
+// Create meal log
 
 app.post(
     "/api/meal-logs",
@@ -1301,9 +1273,7 @@ app.post(
 );
 
 
-/* =========================================================
-   TODAY'S MEAL LOGS
-========================================================= */
+// Today's meal logs
 
 app.get(
     "/api/meal-logs/:userId",
@@ -1362,9 +1332,7 @@ app.get(
 );
 
 
-/* =========================================================
-   MEAL HISTORY
-========================================================= */
+// Meal history
 
 app.get(
     "/api/meal-history/:userId",
@@ -1418,9 +1386,7 @@ app.get(
 );
 
 
-/* =========================================================
-   NUTRITION REPORT
-========================================================= */
+// Nutrition report
 
 app.get(
     "/api/reports/nutrition/:userId",
@@ -1530,9 +1496,7 @@ app.get(
 );
 
 
-/* =========================================================
-   CALORIE REPORT
-========================================================= */
+// Calorie report
 
 app.get(
     "/api/reports/calories/:userId",
@@ -1637,9 +1601,7 @@ app.get(
 );
 
 
-/* =========================================================
-   GET PROGRESS
-========================================================= */
+// Get progress
 
 app.get(
     "/api/progress/:userId",
@@ -1688,9 +1650,7 @@ app.get(
 );
 
 
-/* =========================================================
-   CREATE PROGRESS RECORD
-========================================================= */
+// Create progress record
 
 app.post(
     "/api/progress",
@@ -1799,9 +1759,7 @@ app.post(
 );
 
 
-/* =========================================================
-   DELETE MEAL LOG
-========================================================= */
+// Delete meal log
 
 app.delete(
     "/api/meal-logs/:id",
@@ -1869,9 +1827,7 @@ app.delete(
 );
 
 
-/* =========================================================
-   GLOBAL ERROR HANDLER
-========================================================= */
+// Global error handler
 
 app.use(
     (error, req, res, next) => {
@@ -1893,9 +1849,7 @@ app.use(
 );
 
 
-/* =========================================================
-   DATABASE TEST
-========================================================= */
+// Database test
 
 pool.query(
     "SELECT NOW()",
@@ -1923,9 +1877,7 @@ pool.query(
 );
 
 
-/* =========================================================
-   START SERVER
-========================================================= */
+// Start server
 
 app.listen(
     PORT,

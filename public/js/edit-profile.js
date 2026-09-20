@@ -19,9 +19,7 @@ if (!userData || !token) {
 }
 
 
-// --------------------------------------------------
 // LOAD PROFILE
-// --------------------------------------------------
 
 async function loadProfile(userId) {
 
@@ -109,10 +107,7 @@ async function loadProfile(userId) {
     }
 }
 
-
-// --------------------------------------------------
 // EDIT PROFILE FORM
-// --------------------------------------------------
 
 const editProfileForm =
     document.getElementById(

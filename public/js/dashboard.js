@@ -1,6 +1,4 @@
-// --------------------------------------------------
-// MESSAGE HELPER
-// --------------------------------------------------
+// Message helper
 
 function clearMessageAfterDelay(element) {
 
@@ -14,9 +12,7 @@ function clearMessageAfterDelay(element) {
 }
 
 
-// --------------------------------------------------
-// USER CHECK
-// --------------------------------------------------
+// User check
 
 const userData =
     localStorage.getItem("user");
@@ -44,9 +40,7 @@ if (!userData) {
 }
 
 
-// --------------------------------------------------
-// PROFILE
-// --------------------------------------------------
+// Profile
 
 async function loadProfile(userId) {
 
@@ -202,9 +196,7 @@ async function loadProfile(userId) {
 }
 
 
-// --------------------------------------------------
-// AVAILABLE MEALS
-// --------------------------------------------------
+// Available meals
 
 async function loadMeals() {
 
@@ -269,10 +261,6 @@ async function loadMeals() {
             '<option value="">Select a meal</option>';
 
 
-        // --------------------------------------------------
-        // DISPLAY MEAL CARDS
-        // --------------------------------------------------
-
         meals.forEach((meal) => {
 
             const mealElement =
@@ -303,10 +291,6 @@ async function loadMeals() {
         });
 
 
-        // --------------------------------------------------
-        // GROUP MEALS BY CATEGORY
-        // --------------------------------------------------
-
         const categories = {};
 
 
@@ -324,10 +308,6 @@ async function loadMeals() {
 
         });
 
-
-        // --------------------------------------------------
-        // CREATE GROUPED DROPDOWN
-        // --------------------------------------------------
 
         Object.keys(categories).forEach(
             (category) => {
@@ -394,9 +374,7 @@ async function loadMeals() {
 }
 
 
-// --------------------------------------------------
-// MEAL FORM ELEMENTS
-// --------------------------------------------------
+// Meal form elements
 
 const mealSelect =
     document.getElementById(
@@ -419,9 +397,7 @@ const caloriePreview =
     );
 
 
-// --------------------------------------------------
-// AUTO SELECT MEAL TYPE
-// --------------------------------------------------
+// Auto-select meal type
 
 mealSelect.addEventListener(
     "change",
@@ -461,9 +437,7 @@ mealSelect.addEventListener(
 );
 
 
-// --------------------------------------------------
-// CALORIE PREVIEW
-// --------------------------------------------------
+// Calorie preview
 
 function updateCaloriePreview() {
 
@@ -500,9 +474,7 @@ quantityInput.addEventListener(
 );
 
 
-// --------------------------------------------------
-// TODAY'S MEALS
-// --------------------------------------------------
+// Today's meals
 
 async function loadTodayMeals(userId) {
 
@@ -558,20 +530,12 @@ async function loadTodayMeals(userId) {
         let totalCalories = 0;
 
 
-        // --------------------------------------------------
-        // EMPTY STATE
-        // --------------------------------------------------
-
         if (meals.length === 0) {
 
             container.innerHTML =
                 "<p>No meals logged today. Start by logging your first meal above.</p>";
         }
 
-
-        // --------------------------------------------------
-        // DISPLAY TODAY'S MEALS
-        // --------------------------------------------------
 
         meals.forEach((meal) => {
 
@@ -615,10 +579,6 @@ async function loadTodayMeals(userId) {
 
         });
 
-
-        // --------------------------------------------------
-        // CALORIE SUMMARY
-        // --------------------------------------------------
 
         document.getElementById(
             "caloriesConsumed"
@@ -730,9 +690,7 @@ async function loadTodayMeals(userId) {
 }
 
 
-// --------------------------------------------------
-// DELETE MEAL
-// --------------------------------------------------
+// Delete meal
 
 async function deleteMeal(logId) {
 
@@ -869,9 +827,7 @@ async function deleteMeal(logId) {
 }
 
 
-// --------------------------------------------------
-// LOG MEAL
-// --------------------------------------------------
+// Log meal
 
 const mealLogForm =
     document.getElementById(
@@ -922,10 +878,6 @@ mealLogForm.addEventListener(
                 "quantity"
             ).value;
 
-
-        // --------------------------------------------------
-        // VALIDATION
-        // --------------------------------------------------
 
         if (!mealId) {
 
@@ -1138,9 +1090,7 @@ mealLogForm.addEventListener(
 );
 
 
-// --------------------------------------------------
-// LOGOUT
-// --------------------------------------------------
+// Logout
 
 const logoutButton =
     document.getElementById(

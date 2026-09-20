@@ -19,9 +19,7 @@ if (!userData || !token) {
 }
 
 
-// --------------------------------------------------
 // LOAD MEAL PLAN
-// --------------------------------------------------
 
 async function loadMealPlan(userId) {
 
@@ -53,9 +51,7 @@ async function loadMealPlan(userId) {
         }
 
 
-        // --------------------------------------------------
         // DISPLAY GOAL
-        // --------------------------------------------------
 
         document.getElementById(
             "goal"
@@ -63,9 +59,7 @@ async function loadMealPlan(userId) {
             plan.goal;
 
 
-        // --------------------------------------------------
         // DISPLAY CALORIE TARGET
-        // --------------------------------------------------
 
         document.getElementById(
             "calorieTarget"
@@ -74,9 +68,7 @@ async function loadMealPlan(userId) {
             " calories";
 
 
-        // --------------------------------------------------
         // DISPLAY MEALS
-        // --------------------------------------------------
 
         displayMeals(
             "breakfast",
@@ -109,9 +101,7 @@ async function loadMealPlan(userId) {
 }
 
 
-// --------------------------------------------------
 // DISPLAY MEALS
-// --------------------------------------------------
 
 function displayMeals(
     elementId,

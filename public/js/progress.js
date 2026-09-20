@@ -19,9 +19,7 @@ if (!userData) {
 }
 
 
-// --------------------------------------------------
 // LOAD PROGRESS
-// --------------------------------------------------
 
 async function loadProgress(userId) {
 
@@ -67,9 +65,7 @@ async function loadProgress(userId) {
             "";
 
 
-        // --------------------------------------------------
         // DISPLAY PROGRESS HISTORY
-        // --------------------------------------------------
 
         if (progress.length === 0) {
 
@@ -114,9 +110,7 @@ async function loadProgress(userId) {
         }
 
 
-        // --------------------------------------------------
         // PREPARE CHART DATA
-        // --------------------------------------------------
 
         const orderedProgress =
             progress.slice().reverse();
@@ -149,9 +143,7 @@ async function loadProgress(userId) {
             );
 
 
-        // --------------------------------------------------
         // DESTROY OLD CHARTS
-        // --------------------------------------------------
 
         if (weightChart) {
 
@@ -165,9 +157,7 @@ async function loadProgress(userId) {
         }
 
 
-        // --------------------------------------------------
         // WEIGHT CHART
-        // --------------------------------------------------
 
         const ctx =
             document.getElementById(
@@ -234,9 +224,7 @@ async function loadProgress(userId) {
             );
 
 
-        // --------------------------------------------------
         // BMI CHART
-        // --------------------------------------------------
 
         const bmiCtx =
             document.getElementById(
@@ -313,9 +301,7 @@ async function loadProgress(userId) {
 }
 
 
-// --------------------------------------------------
 // PROGRESS FORM
-// --------------------------------------------------
 
 const progressForm =
     document.getElementById(
