@@ -23,8 +23,11 @@ A full-stack web application for personalized nutrition and wellness tracking.
 ## Run Locally
 
 git clone https://github.com/Hamsika-rao/FitFeastNutrition.git
+
 cd FitFeastNutrition
+
 nodemon installation
+
 npm run dev
 
 
