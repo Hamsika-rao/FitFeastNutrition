@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
@@ -9,7 +11,7 @@ const jwt = require("jsonwebtoken");
 
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // Security middleware
@@ -154,8 +156,8 @@ function isValidPassword(password) {
 
     return (
         typeof password === "string" &&
-        password.length >= 8 &&
-        password.length <= 100
+        password.length >= 5 &&
+        password.length <= 50
     );
 }
 
@@ -289,7 +291,7 @@ app.post(
             if (!isValidPassword(password)) {
                 return res.status(400).json({
                     message:
-                        "Password must be between 8 and 100 characters."
+                        "Password must be between 5 and 50 characters."
                 });
             }
 
@@ -1878,9 +1880,9 @@ pool.query(
 
 
 // Start server
-
 app.listen(
     PORT,
+    "0.0.0.0",
     () => {
 
         console.log(
